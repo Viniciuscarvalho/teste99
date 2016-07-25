@@ -3,10 +3,6 @@
 
 @interface LoginViewController()
 
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-
 @end
 
 @implementation LoginViewController
@@ -14,19 +10,19 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    self.emailTextField.delegate = self;
+    self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
-    self.emailTextField.layer.borderColor = [[UIColor blackColor]CGColor];
+    self.usernameTextField.layer.borderColor = [[UIColor blackColor]CGColor];
     self.passwordTextField.layer.borderColor = [[UIColor blackColor]CGColor];
-    self.emailTextField.layer.borderWidth = 1.5;
+    self.usernameTextField.layer.borderWidth = 1.5;
     self.passwordTextField.layer.borderWidth = 1.5;
-    self.emailTextField.layer.cornerRadius = 20;
+    self.usernameTextField.layer.cornerRadius = 20;
     self.passwordTextField.layer.cornerRadius = 20;
     
     self.loginButton.layer.cornerRadius = 20;
     
-    [self textFieldShouldReturn:self.emailTextField];
+    [self textFieldShouldReturn:self.usernameTextField];
     [self textFieldShouldReturn:self.passwordTextField];
     
     [self changePlaceholderTextToWhite];
@@ -39,10 +35,10 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *email = [self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *username = [self.usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *password = [self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    if ([userPhoneNumber length] == 0 || [password length] == 0) {
+    if ([username length] == 0 || [password length] == 0) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Oops!"
                                                                                  message:@"Make sure to enter your email and password correctly."
@@ -52,7 +48,7 @@
         [self presentViewController:alertController animated:YES completion:nil];
         
     } else {
-        // TODO PERSISTENCE AND SHOW MAPVIEW
+        
         
     }
 
@@ -60,10 +56,10 @@
 
 - (void)changePlaceholderTextToWhite {
     
-    NSAttributedString *changeEmailToWhite = [[NSAttributedString alloc] initWithString:@"   Email" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    NSAttributedString *changeEmailToWhite = [[NSAttributedString alloc] initWithString:@"   Username" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     NSAttributedString *changePasswordToWhite = [[NSAttributedString alloc] initWithString:@"   Password" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     
-    self.emailTextField.attributedPlaceholder = changeEmailToWhite;
+    self.usernameTextField.attributedPlaceholder = changeEmailToWhite;
     self.passwordTextField.attributedPlaceholder = changePasswordToWhite;
     
 }
@@ -71,7 +67,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.passwordTextField) {
         [textField resignFirstResponder];
-    } else if (textField == self.emailTextField) {
+    } else if (textField == self.usernameTextField) {
         [self.passwordTextField becomeFirstResponder];
     }
     return YES;
@@ -88,7 +84,7 @@
 }
 
 -(void)dismissKeyboard {
-    [self.emailTextField resignFirstResponder];
+    [self.usernameTextField resignFirstResponder];
     [self.passwordTextField resignFirstResponder];
 }
 

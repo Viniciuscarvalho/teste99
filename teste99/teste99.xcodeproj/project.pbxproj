@@ -10,7 +10,8 @@
 		5F85CF9D27715DA1AA44EF9A /* Pods_teste99Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20CD7B8A552D5A8A671D77D9 /* Pods_teste99Tests.framework */; };
 		6FC0B6EEF2D5711BFAD1F7BC /* Pods_teste99.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C13D4F898554CB3E9FE6EC /* Pods_teste99.framework */; };
 		EA8E3F701D45470C00AE5935 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8E3F6F1D45470C00AE5935 /* SessionManager.m */; };
-		EA8E3F731D45473700AE5935 /* Routes.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8E3F721D45473700AE5935 /* Routes.m */; };
+		EADDC4AD1D4694C900E028F5 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4AC1D4694C900E028F5 /* UserModel.m */; };
+		EADDC4B01D46AC6B00E028F5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4AF1D46AC6B00E028F5 /* SignupViewController.m */; };
 		EAFBEA031D43EFA600A47026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFBEA021D43EFA600A47026 /* AppDelegate.swift */; };
 		EAFBEA081D43EFA800A47026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAFBEA061D43EFA800A47026 /* Main.storyboard */; };
 		EAFBEA0A1D43EFA800A47026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAFBEA091D43EFA800A47026 /* Assets.xcassets */; };
@@ -38,8 +39,11 @@
 		E9C13D4F898554CB3E9FE6EC /* Pods_teste99.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teste99.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8E3F6E1D45470C00AE5935 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
 		EA8E3F6F1D45470C00AE5935 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
-		EA8E3F711D45473700AE5935 /* Routes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Routes.h; sourceTree = "<group>"; };
-		EA8E3F721D45473700AE5935 /* Routes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Routes.m; sourceTree = "<group>"; };
+		EADDC4AA1D468BFE00E028F5 /* teste99-Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "teste99-Prefix.h"; sourceTree = "<group>"; };
+		EADDC4AB1D4694C900E028F5 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		EADDC4AC1D4694C900E028F5 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		EADDC4AE1D46AC6B00E028F5 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		EADDC4AF1D46AC6B00E028F5 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		EAFBE9FF1D43EFA500A47026 /* teste99.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teste99.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAFBEA021D43EFA600A47026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAFBEA071D43EFA800A47026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		EAFBEA221D43F00900A47026 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EADDC4AB1D4694C900E028F5 /* UserModel.h */,
+				EADDC4AC1D4694C900E028F5 /* UserModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 			children = (
 				EAFBEA2A1D44048C00A47026 /* LoginViewController.h */,
 				EAFBEA2B1D44048C00A47026 /* LoginViewController.m */,
+				EADDC4AE1D46AC6B00E028F5 /* SignupViewController.h */,
+				EADDC4AF1D46AC6B00E028F5 /* SignupViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -165,8 +173,6 @@
 			children = (
 				EA8E3F6E1D45470C00AE5935 /* SessionManager.h */,
 				EA8E3F6F1D45470C00AE5935 /* SessionManager.m */,
-				EA8E3F711D45473700AE5935 /* Routes.h */,
-				EA8E3F721D45473700AE5935 /* Routes.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				EAFBEA0E1D43EFA800A47026 /* Info.plist */,
+				EADDC4AA1D468BFE00E028F5 /* teste99-Prefix.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -389,9 +396,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA8E3F701D45470C00AE5935 /* SessionManager.m in Sources */,
-				EA8E3F731D45473700AE5935 /* Routes.m in Sources */,
+				EADDC4AD1D4694C900E028F5 /* UserModel.m in Sources */,
 				EAFBEA2C1D44048C00A47026 /* LoginViewController.m in Sources */,
 				EAFBEA031D43EFA600A47026 /* AppDelegate.swift in Sources */,
+				EADDC4B01D46AC6B00E028F5 /* SignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
