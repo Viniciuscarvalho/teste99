@@ -47,6 +47,9 @@
                                         <exclude reference="5Ag-ff-dZE"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="signupButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sar-ve-zSg"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Hb-9b-fgs">
                                 <rect key="frame" x="50" y="271" width="500" height="30"/>
@@ -94,6 +97,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="a3G-ek-cEH"/>
                     <connections>
+                        <outlet property="passwordTextField" destination="IDV-mA-uYh" id="o6i-Mc-NUa"/>
+                        <outlet property="phoneNumberTextField" destination="GCA-Oq-EKJ" id="5gz-tQ-Cqa"/>
+                        <outlet property="signUpButton" destination="Df4-U3-cd6" id="Wbz-cH-4a4"/>
+                        <outlet property="usernameTextField" destination="3Hb-9b-fgs" id="FCX-Xc-nbN"/>
                         <segue destination="6jQ-Ea-LP6" kind="show" identifier="mapLocationViewControllerIdentifier" id="clk-t6-Zqz"/>
                     </connections>
                 </viewController>
@@ -124,19 +131,30 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mm4-nK-MVI">
+                                <rect key="frame" x="0.0" y="435" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w0g-PJ-4xn" firstAttribute="top" secondItem="WcO-2f-7xV" secondAttribute="bottom" constant="421" id="2rt-dk-ij0"/>
+                            <constraint firstItem="mm4-nK-MVI" firstAttribute="trailing" secondItem="BoP-rx-xHN" secondAttribute="trailing" id="CEw-I7-86E"/>
                             <constraint firstItem="w0g-PJ-4xn" firstAttribute="leading" secondItem="G75-oj-N0l" secondAttribute="leadingMargin" id="CHF-ba-VpV"/>
+                            <constraint firstItem="mm4-nK-MVI" firstAttribute="leading" secondItem="BoP-rx-xHN" secondAttribute="leading" id="Dpu-m2-qqV"/>
                             <constraint firstItem="w0g-PJ-4xn" firstAttribute="centerX" secondItem="BoP-rx-xHN" secondAttribute="centerX" id="G9v-8R-IpT"/>
                             <constraint firstItem="BoP-rx-xHN" firstAttribute="top" secondItem="G75-oj-N0l" secondAttribute="top" id="IQw-dz-Q2x"/>
+                            <constraint firstItem="w0g-PJ-4xn" firstAttribute="top" secondItem="mm4-nK-MVI" secondAttribute="bottom" constant="6" id="JEE-np-Z6i"/>
                             <constraint firstAttribute="trailing" secondItem="BoP-rx-xHN" secondAttribute="trailing" id="Nu5-gO-gN0"/>
                             <constraint firstItem="m5n-a2-vQA" firstAttribute="top" secondItem="w0g-PJ-4xn" secondAttribute="bottom" constant="75" id="T1Y-AH-au5"/>
                             <constraint firstItem="BoP-rx-xHN" firstAttribute="leading" secondItem="G75-oj-N0l" secondAttribute="leading" id="TYq-dd-sRi"/>
                             <constraint firstItem="BoP-rx-xHN" firstAttribute="bottom" secondItem="m5n-a2-vQA" secondAttribute="top" id="ekZ-OO-o0G"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="BoP-rx-xHN" id="kMc-qV-Iy9"/>
+                        <outlet property="searchTextField" destination="mm4-nK-MVI" id="ey3-xH-LOl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBg-w0-Xvs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

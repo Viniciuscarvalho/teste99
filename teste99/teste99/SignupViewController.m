@@ -1,14 +1,15 @@
 
-#import <Realm/Realm.h>
-
 #import "SignupViewController.h"
 #import "UserModel.h"
+#import "SessionManager.h"
 
 @implementation SignupViewController
 
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    
+    [self.navigationController setNavigationBarHidden:true];
     
     [self configureTextFields];
     

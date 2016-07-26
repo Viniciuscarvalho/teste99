@@ -23,20 +23,15 @@ PODS:
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
-  - Realm (1.0.2):
-    - Realm/Headers (= 1.0.2)
-  - Realm/Headers (1.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - Mantle
-  - Realm
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
-  Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
 
-PODFILE CHECKSUM: 2c4a85cdcfd38739d4c859d87cc01ddb29d6dbeb
+PODFILE CHECKSUM: c2c0e07d58f36f5b599c305e88728c0969ad75b9
 
 COCOAPODS: 1.0.0

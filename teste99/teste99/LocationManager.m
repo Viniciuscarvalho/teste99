@@ -34,13 +34,5 @@
     return nil;
 }
 
-- (void)setGeofenceForUser:(UserModel *)user {
-    
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:user.location.latitude longitude:user.location.longitude];
-    CLCircularRegion *geofenceRegion = [[CLCircularRegion alloc]initWithCenter:location.coordinate radius:40.0 identifier:user.username];
-    
-    [self.locationManager startMonitoringForRegion:geofenceRegion];
-}
-
 
 @end

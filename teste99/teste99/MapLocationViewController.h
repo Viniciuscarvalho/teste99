@@ -4,8 +4,13 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface MapLocationViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate>
+@interface MapLocationViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UISearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchTextField;
+@property (nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *location;
+@property (nonatomic) BOOL hasUserLocation;
 
 
 @end

@@ -5,7 +5,6 @@ use_frameworks!
 
 target ‘teste99’ do
 
-pod 'Realm’
 pod 'Mantle’
 pod 'AFNetworking', '~> 2.5'
 

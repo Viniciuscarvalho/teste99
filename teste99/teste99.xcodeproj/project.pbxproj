@@ -14,7 +14,7 @@
 		EADDC4B01D46AC6B00E028F5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4AF1D46AC6B00E028F5 /* SignupViewController.m */; };
 		EADDC4B31D46CAA600E028F5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4B21D46CAA600E028F5 /* LocationManager.m */; };
 		EADDC4B61D46DF0400E028F5 /* MapLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4B51D46DF0400E028F5 /* MapLocationViewController.m */; };
-		EADDC4BC1D46EEF200E028F5 /* MapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4BB1D46EEF200E028F5 /* MapManager.m */; };
+		EADF71081D48034500E2E534 /* DriverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EADF71071D48034500E2E534 /* DriverModel.m */; };
 		EAFBEA031D43EFA600A47026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFBEA021D43EFA600A47026 /* AppDelegate.swift */; };
 		EAFBEA081D43EFA800A47026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAFBEA061D43EFA800A47026 /* Main.storyboard */; };
 		EAFBEA0A1D43EFA800A47026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAFBEA091D43EFA800A47026 /* Assets.xcassets */; };
@@ -50,8 +50,8 @@
 		EADDC4B21D46CAA600E028F5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		EADDC4B41D46DF0400E028F5 /* MapLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLocationViewController.h; sourceTree = "<group>"; };
 		EADDC4B51D46DF0400E028F5 /* MapLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapLocationViewController.m; sourceTree = "<group>"; };
-		EADDC4BA1D46EEF200E028F5 /* MapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapManager.h; sourceTree = "<group>"; };
-		EADDC4BB1D46EEF200E028F5 /* MapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapManager.m; sourceTree = "<group>"; };
+		EADF71061D48034500E2E534 /* DriverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverModel.h; sourceTree = "<group>"; };
+		EADF71071D48034500E2E534 /* DriverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverModel.m; sourceTree = "<group>"; };
 		EAFBE9FF1D43EFA500A47026 /* teste99.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = teste99.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAFBEA021D43EFA600A47026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAFBEA071D43EFA800A47026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -154,6 +154,8 @@
 				EADDC4AC1D4694C900E028F5 /* UserModel.m */,
 				EADDC4B11D46CAA600E028F5 /* LocationManager.h */,
 				EADDC4B21D46CAA600E028F5 /* LocationManager.m */,
+				EADF71061D48034500E2E534 /* DriverModel.h */,
+				EADF71071D48034500E2E534 /* DriverModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -161,8 +163,6 @@
 		EAFBEA231D43F00F00A47026 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EADDC4BA1D46EEF200E028F5 /* MapManager.h */,
-				EADDC4BB1D46EEF200E028F5 /* MapManager.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -405,10 +405,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EADDC4BC1D46EEF200E028F5 /* MapManager.m in Sources */,
 				EA8E3F701D45470C00AE5935 /* SessionManager.m in Sources */,
 				EADDC4B31D46CAA600E028F5 /* LocationManager.m in Sources */,
 				EADDC4AD1D4694C900E028F5 /* UserModel.m in Sources */,
+				EADF71081D48034500E2E534 /* DriverModel.m in Sources */,
 				EAFBEA031D43EFA600A47026 /* AppDelegate.swift in Sources */,
 				EADDC4B61D46DF0400E028F5 /* MapLocationViewController.m in Sources */,
 				EADDC4B01D46AC6B00E028F5 /* SignupViewController.m in Sources */,
