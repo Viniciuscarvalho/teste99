@@ -10,6 +10,8 @@
 
     [super viewDidLoad];
     
+    [self configureTextFields];
+    
     [self changePlaceholderTextToWhite];
     [self setupTapGestureRecognizer];
     [self dismissKeyboard];
@@ -40,7 +42,7 @@
     
 }
 
-- (IBAction)signupButtonTapped:(UIButton *)sender {
+- (IBAction) signupButtonTapped:(UIButton *)sender {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -58,23 +60,17 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }
     else {
-        UserModel *newUser = [[UserModel alloc]init];
-        newUser.username = username;
-        newUser.password = userPassword;
-        //newUser[@"name"] = username;
         
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error) {
+        // TODO POST FROM JSON FOR CREATE USER
+        
+        if (!error) {
+        
+            UIViewController *mapLocation = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapLocationViewControllerIdentifier"];
+        
+            [self presentViewController:mapLocation animated:YES completion:nil];
                 
-                if (![defaults boolForKey:@"UserHasToken"]) {
-                    
-                     MapLocationViewController *mapLocation = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapLocationViewControllerIdentifier"];
-                    
-                }
-                [self presentViewController:mapLocation animated:YES completion:nil];
-                
-                [defaults synchronize];
-            } else {
+            [defaults synchronize];
+        } else {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sorry!"
                                                                                          message:[error.userInfo objectForKey:@"error"]
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
@@ -86,7 +82,7 @@
     }
 }
 
-- (void)changePlaceholderTextToWhite {
+- (void) changePlaceholderTextToWhite {
     
     NSAttributedString *changeUsernameToWhite = [[NSAttributedString alloc] initWithString:@"   First Name" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
     NSAttributedString *changePhoneNumberToWhite = [[NSAttributedString alloc] initWithString:@"   Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
@@ -98,7 +94,7 @@
     
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.passwordTextField) {
         [textField resignFirstResponder];
     } else if (textField == self.usernameTextField) {
@@ -107,7 +103,7 @@
     return YES;
 }
 
-- (void)setupTapGestureRecognizer {
+- (void) setupTapGestureRecognizer {
     // tap to dismiss keyboard!
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -117,7 +113,7 @@
     [tap setCancelsTouchesInView:YES];
 }
 
--(void)dismissKeyboard {
+-(void) dismissKeyboard {
     [self.usernameTextField resignFirstResponder];
     [self.phoneNumberTextField resignFirstResponder];
     [self.passwordTextField resignFirstResponder];

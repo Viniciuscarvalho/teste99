@@ -8,8 +8,8 @@
 @property (nonatomic) NSInteger userId;
 @property (nonatomic) NSString *username;
 @property (nonatomic) NSString *password;
+@property (nonatomic) NSString *phone;
 @property (nonatomic) NSString *loginToken;
-
-//- (void) saveOnSuccess:(NSString *)name onSuccess:(void(^)[(id data)success onFailure:(void(^)(NSError *error))failure;
+@property (nonatomic) NSLocale *location;
 
 @end
