@@ -4,6 +4,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
+#import "AFNetworking.h"
 
 @implementation MapLocationViewController 
 
@@ -19,6 +20,8 @@
     [self.locationManager startUpdatingLocation];
     
     [self setCurrentLocation];
+    
+    
     
 }
 
@@ -58,6 +61,32 @@
     return circleView;
 }
 
+
+// MARK - Location of drivers
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    MKPinAnnotationView *pinAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"AnnotationIdentifier"];
+    pinAnnotation.pinTintColor = MKPinAnnotationColorRed;
+    pinAnnotation.animatesDrop = YES;
+    
+    return pinAnnotation;
+
+};
+
+- (void) setLocationDrivers {
+    
+    // TODO REQUEST FROM API FOR PLOT POINTS IN MAP
+    
+    NSArray* locations= @[ MakeLocation(20,20) , MakeLocation(40,40) , MakeLocation(60,60) ];
+    
+    for (int i=0; i<[locations count]; i++) {
+        MKPointAnnotation* annotation= [MKPointAnnotation new];
+        annotation.coordinate= [locations[i] coordinate];
+        [_mapView addAnnotation: annotation];
+    }
+    
+}
 
 
 @end

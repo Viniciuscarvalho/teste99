@@ -11,6 +11,7 @@
 @property (nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLLocation *location;
 @property (nonatomic) BOOL hasUserLocation;
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 
 @end

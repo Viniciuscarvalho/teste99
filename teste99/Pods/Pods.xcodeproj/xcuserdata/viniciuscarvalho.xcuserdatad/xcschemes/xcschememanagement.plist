@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LLARingSpinnerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>232B4C7D14FFD7548BC7A6799A0BF030</key>
+		<key>10AB4E22B2C53A719E0CAF57F34A98CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>86A96F017CAEF774207B239847C6F432</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B32883511ABB7869397961915642BBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

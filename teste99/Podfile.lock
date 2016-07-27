@@ -20,18 +20,21 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - LLARingSpinnerView (0.1.4)
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - LLARingSpinnerView
   - Mantle
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  LLARingSpinnerView: 334c37fd53f25c86651cbb4c57f70b12d571d7a5
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
 
-PODFILE CHECKSUM: c2c0e07d58f36f5b599c305e88728c0969ad75b9
+PODFILE CHECKSUM: 798965c37a197883e8786513b35d4564f2fe74f0
 
 COCOAPODS: 1.0.0

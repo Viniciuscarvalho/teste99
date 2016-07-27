@@ -1,7 +1,8 @@
 
 #import "SignupViewController.h"
 #import "UserModel.h"
-#import "SessionManager.h"
+#import "APIManager.h"
+#import "LLARingSpinnerView.h"
 
 @implementation SignupViewController
 
@@ -43,6 +44,18 @@
     
 }
 
+- (void)showLoadingSpinner {
+    
+    [self.view addSubview:spinnerView];
+    [spinnerView startAnimating];
+}
+
+- (void)hideLoadingSpinner {
+    
+    [spinnerView stopAnimating];
+    [spinnerView removeFromSuperview];
+}
+
 - (IBAction) signupButtonTapped:(UIButton *)sender {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -62,26 +75,35 @@
     }
     else {
         
-        // TODO POST FROM JSON FOR CREATE USER
+        [self showLoadingSpinner];
         
-        if (!error) {
-        
+        [APIManager signupUser:username onSuccess:^(id data)  {
+            
+            [APIManager saveUserData:nil];
+            
             UIViewController *mapLocation = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapLocationViewControllerIdentifier"];
-        
+            
             [self presentViewController:mapLocation animated:YES completion:nil];
-                
+            
             [defaults synchronize];
-        } else {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sorry!"
-                                                                                         message:[error.userInfo objectForKey:@"error"]
-                                                                                  preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-                [alertController addAction:ok];
-                [self presentViewController:alertController animated:YES completion:nil];
-            }
+        
+        } onFailure:^(NSError *error) {
+        
+            [self hideLoadingSpinner];
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Sorry!"
+                                                                                     message:[error.userInfo objectForKey:@"error"]
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            [self presentViewController:alertController animated:YES completion:nil];
+
+            NSLog(@"erro");
+            
         }];
     }
 }
+
 
 - (void) changePlaceholderTextToWhite {
     

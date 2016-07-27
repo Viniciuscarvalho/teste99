@@ -6,6 +6,7 @@ use_frameworks!
 target ‘teste99’ do
 
 pod 'Mantle’
+pod 'LLARingSpinnerView'
 pod 'AFNetworking', '~> 2.5'
 
 end

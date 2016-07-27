@@ -1,7 +1,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignupViewController : UIViewController <UITextFieldDelegate>
+@interface SignupViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> {
+
+    LLARingSpinnerView *spinnerView;
+
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;

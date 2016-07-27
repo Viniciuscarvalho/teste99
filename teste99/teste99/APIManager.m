@@ -1,10 +1,10 @@
 
-#import "SessionManager.h"
+#import "APIManager.h"
 #import "AFNetworking.h"
 #import "UserModel.h"
 #import "DriverModel.h"
 
-@implementation SessionManager
+@implementation APIManager
 
 + (void)saveUserData:(NSDictionary *)userData {
     
@@ -42,6 +42,27 @@
           }];
 }
 
++ (void) requestTaxi:(NSString *)ride onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
+    
+    [manager PUT:URL_REQUEST_DRIVER
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             success(responseObject);
+             
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+             failure(error);
+         }];
+    
+}
+
+
+
 + (void) locationDriver:(NSInteger)sw pointNortheast:(NSInteger)ne onSuccess:(void(^)(NSMutableArray*data))success onFailure:(void(^)(NSError*error))failure {
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -56,6 +77,7 @@
              if([responseObject count] > 0) {
                  
                  NSMutableArray *locationDrivers = [NSMutableArray new];
+                 
                  for(NSDictionary *locationDriver in responseObject) {
                      
                      DriverModel *driver = [[DriverModel alloc] initWithDictionary:locationDriver];
