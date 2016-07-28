@@ -5,6 +5,8 @@
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
+#import "APIManager.h"
+#import "DriverModel.h"
 
 @implementation MapLocationViewController 
 
@@ -20,7 +22,6 @@
     [self.locationManager startUpdatingLocation];
     
     [self setCurrentLocation];
-    
     
     
 }
@@ -66,7 +67,25 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
-    MKPinAnnotationView *pinAnnotation = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"AnnotationIdentifier"];
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+    
+        return nil;
+        
+    }
+    
+    static NSString *annotationIdentifier = @"AnnotationIdentifier";
+    MKPinAnnotationView *pinAnnotation = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
+    
+    if (!pinAnnotation) {
+    
+        pinAnnotation = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
+    
+    } else {
+    
+        pinAnnotation.annotation = annotation;
+        
+    }
+    
     pinAnnotation.pinTintColor = MKPinAnnotationColorRed;
     pinAnnotation.animatesDrop = YES;
     
@@ -76,15 +95,24 @@
 
 - (void) setLocationDrivers {
     
-    // TODO REQUEST FROM API FOR PLOT POINTS IN MAP
+    // miss params with alocate SW and NE
     
-    NSArray* locations= @[ MakeLocation(20,20) , MakeLocation(40,40) , MakeLocation(60,60) ];
+    [APIManager locationDriver:(NSArray *)sw pointNortheast:(NSArray *)ne onSuccess:^(NSArray<DriverModel *> *locations){
+        __weak typeof(self) weakSelf = self;
+        
+        for (DriverModel *driver in locations) {
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(driver.latitude, driver.longitude);
+            MKPointAnnotation* annotation= [MKPointAnnotation new];
+            annotation.coordinate= coordinate;
+            [weakSelf.mapView addAnnotation: annotation];
+        }
     
-    for (int i=0; i<[locations count]; i++) {
-        MKPointAnnotation* annotation= [MKPointAnnotation new];
-        annotation.coordinate= [locations[i] coordinate];
-        [_mapView addAnnotation: annotation];
-    }
+    } onFailure:^(NSError *error) {
+        
+        NSLog(@"Error in load points");
+    
+    }];
+    
     
 }
 

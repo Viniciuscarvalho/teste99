@@ -8,7 +8,7 @@
 +(NSDictionary *)getUserData;
 
 + (void) signupUser:(NSString *)name onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure;
-+ (void) locationDriver:(NSInteger)sw pointNortheast:(NSInteger)ne onSuccess:(void(^)(NSMutableArray*data))success onFailure:(void(^)(NSError*error))failure;
++ (void) locationDriver:(NSArray)sw pointNortheast:(NSArray)ne onSuccess:(void(^)(NSMutableArray*data))success onFailure:(void(^)(NSError*error))failure;
 + (void) requestTaxi:(NSString *)ride onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure;
 
 

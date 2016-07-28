@@ -63,7 +63,7 @@
 
 
 
-+ (void) locationDriver:(NSInteger)sw pointNortheast:(NSInteger)ne onSuccess:(void(^)(NSMutableArray*data))success onFailure:(void(^)(NSError*error))failure {
++ (void) locationDriver:(NSArray *)sw pointNortheast:(NSArray *)ne onSuccess:(void(^)(NSMutableArray*data))success onFailure:(void(^)(NSError*error))failure {
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

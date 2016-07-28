@@ -2,12 +2,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DriverModel : NSObject
+@interface DriverModel : NSObject <NSCoding>
 
-@property (weak, nonatomic) NSString *latitude;
-@property (weak, nonatomic) NSString *longitude;
-@property (nonatomic) NSInteger *driverId;
+@property (nonatomic, readonly) NSString *latitude;
+@property (nonatomic, readonly) NSString *longitude;
+@property (nonatomic, readonly) NSInteger *driverId;
 @property (nonatomic) BOOL *driverAvailable;
 
+- (id) initWithDictionary:(NSDictionary *)dictionary;
 
 @end
