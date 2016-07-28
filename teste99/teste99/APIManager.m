@@ -51,6 +51,7 @@
     [manager PUT:URL_REQUEST_DRIVER
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"JSON: %@", responseObject);
              
              success(responseObject);
              
@@ -61,6 +62,45 @@
     
 }
 
++ (void) dataRacing:(NSInteger *)raceId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
+    
+    [manager GET:URL_RACE_DATA(raceId)
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"JSON: %@", responseObject);
+             
+             success(responseObject);
+             
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+             failure(error);
+         }];
+
+}
+
++ (void) listUsers:(NSInteger *)userId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
+    
+    [manager GET:URL_LIST_USERS(userId)
+      parameters:nil
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             NSLog(@"JSON: %@", responseObject);
+         
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Error: %@", error);
+         failure(error);
+     }];
+
+    
+}
 
 
 + (void) locationDriver:(NSArray *)sw pointNortheast:(NSArray *)ne onSuccess:(void(^)(NSMutableArray*data))success onFailure:(void(^)(NSError*error))failure {
