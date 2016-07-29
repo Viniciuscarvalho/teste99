@@ -14,7 +14,8 @@
     
     [super viewDidLoad];
 
-    self.searchTextField.delegate = self;
+    self.addressTextField.delegate = self;
+    self.mapView = [[MKMapView alloc] init];
     self.mapView.delegate = self;
 
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -95,14 +96,12 @@
 
 - (void) setLocationDrivers {
     
-    // miss params with alocate SW and NE
-    
-    [APIManager locationDriver:(NSArray *)sw pointNortheast:(NSArray *)ne onSuccess:^(NSArray<DriverModel *> *locations){
+    [APIManager locationDriver:(NSArray *)_sw pointNortheast:(NSArray *)_ne onSuccess:^(NSArray<DriverModel *> *locations){
         __weak typeof(self) weakSelf = self;
         
         for (DriverModel *driver in locations) {
             CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(driver.latitude, driver.longitude);
-            MKPointAnnotation* annotation= [MKPointAnnotation new];
+            MKPointAnnotation *annotation= [MKPointAnnotation new];
             annotation.coordinate= coordinate;
             [weakSelf.mapView addAnnotation: annotation];
         }
@@ -113,8 +112,27 @@
     
     }];
     
-    
 }
+
+// MARK - Location for user in textField
+
+- (void) getAddressFromCurrentUser:(CLLocation *)currentLocation {
+
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+    
+        if (error) {
+            NSLog(@"Geocode failed with error: %@", error);
+            return;
+        }
+        CLPlacemark *placemark = [placemarks objectAtIndex:0];
+        
+    }];
+
+}
+
+
+
 
 
 @end

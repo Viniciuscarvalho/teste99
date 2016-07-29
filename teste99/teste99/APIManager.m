@@ -119,7 +119,7 @@
                  
                  NSMutableArray *locationDrivers = [NSMutableArray new];
                  
-                 for(NSDictionary *locationDriver in responseObject) {
+                 for (NSDictionary *locationDriver in responseObject) {
                      
                      DriverModel *driver = [[DriverModel alloc] initWithDictionary:locationDriver];
                      [locationDrivers addObject:driver];

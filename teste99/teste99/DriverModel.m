@@ -9,8 +9,8 @@
     self = [self init];
     if (self == nil) return nil;
     
-    _latitude = [dictionary[@"latitude"] copy];
-    _longitude = [dictionary[@"longitude"] copy];
+    _latitude = dictionary[@"latitude"];
+    _longitude = dictionary[@"longitude"];
     _driverId = dictionary[@"driverId"];
     
     return self;

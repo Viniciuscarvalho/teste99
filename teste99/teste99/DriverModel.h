@@ -4,8 +4,8 @@
 
 @interface DriverModel : NSObject <NSCoding>
 
-@property (nonatomic, readonly) NSString *latitude;
-@property (nonatomic, readonly) NSString *longitude;
+@property (nonatomic, readonly) double latitude;
+@property (nonatomic, readonly) double longitude;
 @property (nonatomic, readonly) NSInteger *driverId;
 @property (nonatomic) BOOL *driverAvailable;
 
