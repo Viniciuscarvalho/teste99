@@ -41,7 +41,7 @@
 		E9C13D4F898554CB3E9FE6EC /* Pods_teste99.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teste99.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8E3F6E1D45470C00AE5935 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		EA8E3F6F1D45470C00AE5935 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
-		EADDC4AA1D468BFE00E028F5 /* teste99-Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "teste99-Prefix.h"; sourceTree = "<group>"; };
+		EADDC4AA1D468BFE00E028F5 /* teste99-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "teste99-Prefix.pch"; sourceTree = "<group>"; };
 		EADDC4AB1D4694C900E028F5 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		EADDC4AC1D4694C900E028F5 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		EADDC4AE1D46AC6B00E028F5 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				EAFBEA0E1D43EFA800A47026 /* Info.plist */,
-				EADDC4AA1D468BFE00E028F5 /* teste99-Prefix.h */,
+				EADDC4AA1D468BFE00E028F5 /* teste99-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

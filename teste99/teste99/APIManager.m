@@ -1,6 +1,6 @@
 
 #import "APIManager.h"
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 #import "UserModel.h"
 #import "DriverModel.h"
 
@@ -27,7 +27,6 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
     
     [manager POST:URL_CREATE_USER
        parameters:@{@"name":name}
@@ -61,7 +60,7 @@
     
 }
 
-+ (void) dataRacing:(NSInteger *)raceId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
++ (void) dataRacing:(NSInteger)raceId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -80,7 +79,7 @@
 
 }
 
-+ (void) listUsers:(NSInteger *)userId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
++ (void) listUsers:(NSInteger)userId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
