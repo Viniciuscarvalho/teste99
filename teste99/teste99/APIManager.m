@@ -105,8 +105,8 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    [manager GET:"https://api.99taxis.com/lastLocations"
-      parameters:@{@"sw":@(sw), @"ne":@(ne)}
+    [manager GET:@"https://api.99taxis.com/lastLocations"
+      parameters:@{@"sw":@("sw"), @"ne":@("ne")}
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);
              
@@ -122,10 +122,7 @@
                  }
                  
                  success(locationDrivers);
-                 
-             } else {
-             
-                 failure([[NSError alloc]initWithDomain:@"" code:1 userInfo:nil]);
+             }
              
              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"Error: %@", error);
@@ -134,6 +131,5 @@
     
 }
 
-
-
 @end
+
