@@ -15,7 +15,7 @@
     
     [self configureTextFields];
     
-    [self changePlaceholderTextToWhite];
+    [self changePlaceholderTextToGray];
     [self setupTapGestureRecognizer];
     [self dismissKeyboard];
 }
