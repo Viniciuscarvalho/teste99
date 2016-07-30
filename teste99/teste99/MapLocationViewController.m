@@ -8,6 +8,10 @@
 #import "APIManager.h"
 #import "DriverModel.h"
 
+@interface MapLocationViewController() <MKMapViewDelegate>
+
+@end
+
 @implementation MapLocationViewController 
 
 - (void) viewDidLoad {
@@ -17,7 +21,8 @@
     self.addressTextField.delegate = self;
     self.mapView = [[MKMapView alloc] init];
     self.mapView.delegate = self;
-
+    self.mapView.showsUserLocation = YES;
+    
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
@@ -63,8 +68,37 @@
     return circleView;
 }
 
+// MARK - Location Drivers
 
-// MARK - Location of drivers
+- (void) setLocationDrivers {
+    
+    [APIManager locationDriver:(NSArray *)_sw pointNortheast:(NSArray *)_ne onSuccess:^(NSArray<DriverModel *> *locations){
+        __weak typeof(self) weakSelf = self;
+        
+        for (DriverModel *driver in locations) {
+            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(driver.latitude, driver.longitude);
+            MKPointAnnotation *annotation= [MKPointAnnotation new];
+            annotation.coordinate= coordinate;
+            [weakSelf.mapView addAnnotation: annotation];
+        }
+        
+    } onFailure:^(NSError *error) {
+        
+        NSLog(@"Error in load points");
+        
+    }];
+    
+}
+
+- (void) selectDriver: (DriverModel *)driver {
+    
+    [self.mapView selectAnnotation:driver animated:YES];
+    
+}
+
+
+
+// MARK - MKMapViewDelegate
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
@@ -94,25 +128,7 @@
 
 };
 
-- (void) setLocationDrivers {
-    
-    [APIManager locationDriver:(NSArray *)_sw pointNortheast:(NSArray *)_ne onSuccess:^(NSArray<DriverModel *> *locations){
-        __weak typeof(self) weakSelf = self;
-        
-        for (DriverModel *driver in locations) {
-            CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(driver.latitude, driver.longitude);
-            MKPointAnnotation *annotation= [MKPointAnnotation new];
-            annotation.coordinate= coordinate;
-            [weakSelf.mapView addAnnotation: annotation];
-        }
-    
-    } onFailure:^(NSError *error) {
-        
-        NSLog(@"Error in load points");
-    
-    }];
-    
-}
+
 
 // MARK - Location for user in textField
 

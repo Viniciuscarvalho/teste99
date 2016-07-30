@@ -9,9 +9,9 @@
     self = [self init];
     if (self == nil) return nil;
     
-    _latitude = dictionary[@"latitude"];
-    _longitude = dictionary[@"longitude"];
-    _driverId = dictionary[@"driverId"];
+    _latitude : [dictionary[@"latitude"] copy];
+    _longitude : [dictionary[@"longitude"] copy];
+    _driverId : [dictionary[@"driverId"] copy];
     
     return self;
 }
@@ -21,9 +21,9 @@
     self = [self init];
     if (self == nil) return nil;
     
-    _latitude = [coder decodeObjectForKey:@"latitude"];
-    _longitude = [coder decodeObjectForKey:@"longitude"];
-    _driverId = [coder decodeIntegerForKey:@"driverId"];
+    _latitude : [coder decodeObjectForKey:@"latitude"];
+    _longitude : [coder decodeObjectForKey:@"longitude"];
+    _driverId : [coder decodeIntegerForKey:@"driverId"];
     
     return self;
 

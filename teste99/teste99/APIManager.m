@@ -46,7 +46,6 @@
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
     
     [manager PUT:URL_REQUEST_DRIVER
       parameters:nil
@@ -66,7 +65,6 @@
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
     
     [manager GET:URL_RACE_DATA(raceId)
       parameters:nil
@@ -86,7 +84,6 @@
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
     
     [manager GET:URL_LIST_USERS(userId)
       parameters:nil
@@ -108,7 +105,6 @@
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
     
     [manager GET:"https://api.99taxis.com/lastLocations"
       parameters:@{@"sw":@(sw), @"ne":@(ne)}

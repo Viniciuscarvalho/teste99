@@ -105,15 +105,15 @@
 }
 
 
-- (void) changePlaceholderTextToWhite {
+- (void) changePlaceholderTextToGray {
     
-    NSAttributedString *changeUsernameToWhite = [[NSAttributedString alloc] initWithString:@"   First Name" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
-    NSAttributedString *changePhoneNumberToWhite = [[NSAttributedString alloc] initWithString:@"   Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
-    NSAttributedString *changePasswordToWhite = [[NSAttributedString alloc] initWithString:@"   Password" attributes:@{ NSForegroundColorAttributeName : [UIColor whiteColor] }];
+    NSAttributedString *changeUsernameToGray = [[NSAttributedString alloc] initWithString:@"   First Name" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *changePhoneNumberToGray = [[NSAttributedString alloc] initWithString:@"   Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *changePasswordToGray = [[NSAttributedString alloc] initWithString:@"   Password" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
     
-    self.usernameTextField.attributedPlaceholder = changeUsernameToWhite;
-    self.phoneNumberTextField.attributedPlaceholder = changePhoneNumberToWhite;
-    self.passwordTextField.attributedPlaceholder = changePasswordToWhite;
+    self.usernameTextField.attributedPlaceholder = changeUsernameToGray;
+    self.phoneNumberTextField.attributedPlaceholder = changePhoneNumberToGray;
+    self.passwordTextField.attributedPlaceholder = changePasswordToGray;
     
 }
 

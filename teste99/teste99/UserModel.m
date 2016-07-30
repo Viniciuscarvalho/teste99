@@ -8,7 +8,7 @@
     self = [self init];
     if (self == nil) return nil;
     
-    _userId = dictionary[@"userId"];
+    _userId : [dictionary[@"userId"] copy];
     _username = [dictionary[@"name"] copy];
     _password = [dictionary[@"password"] copy];
     
