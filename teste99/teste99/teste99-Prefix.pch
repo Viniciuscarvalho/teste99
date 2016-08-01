@@ -14,7 +14,7 @@
 #define HOST @"http://ec2-54-88-12-34.compute-1.amazonaws.com"
 
 #define URL_CREATE_USER [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/users"]]
-#define URL_EDIT_USER (userId) [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/users/@%d", userId ]]
-#define URL_LIST_USERS (userId) [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/users/@%d", userId]]
+#define URL_EDIT_USER(userId) [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/users/@%d", userId ]]
+#define URL_LIST_USERS(userId) [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/users/@%d", userId]]
 #define URL_REQUEST_DRIVER [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/ride"]]
-#define URL_RACE_DATA (rideId) [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/ride/@%d", rideId ]]
+#define URL_RACE_DATA(rideId) [HOST stringByAppendingString:[NSString stringWithFormat:@"v1/ride/@%d", rideId ]]
