@@ -2,7 +2,7 @@
 #import "SignupViewController.h"
 #import "UserModel.h"
 #import "APIManager.h"
-#import "LLARingSpinnerView.h"
+#import <LLARingSpinnerView/LLARingSpinnerView.h>
 
 
 @implementation SignupViewController
