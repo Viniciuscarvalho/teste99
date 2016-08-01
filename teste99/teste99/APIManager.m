@@ -60,12 +60,12 @@
     
 }
 
-+ (void) dataRacing:(NSInteger)raceId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
++ (void) dataRacing:(NSInteger)rideId onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
-    [manager GET:URL_RACE_DATA(raceId)
+    [manager GET:URL_RACE_DATA(rideId)
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);

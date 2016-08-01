@@ -6,7 +6,7 @@
 
 @property (nonatomic, readonly) double latitude;
 @property (nonatomic, readonly) double longitude;
-@property (strong, nonatomic, readonly) NSInteger *driverId;
+@property (nonatomic, readonly) NSInteger *driverId;
 @property (nonatomic) BOOL *driverAvailable;
 
 - (id) initWithDictionary:(NSDictionary *)dictionary;
