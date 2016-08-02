@@ -129,10 +129,26 @@
 
 };
 
+// MARK - Request taxi
+
+- (void)requestTaxi {
+
+    [APIManager requestTaxi:rideId onSuccess:^(id data) {
+    
+    
+    } onFailure:^(NSError *error) {
+    
+        NSLog(@"Try request Taxi again");
+        
+    }];
+ 
+
+}
+
 
 // MARK - Location for user in textField
 
-- (void) getAddressFromCurrentUser:(CLLocation *)currentLocation {
+- (void)getAddressFromCurrentUser:(CLLocation *)currentLocation {
 
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -147,18 +163,15 @@
 
 }
 
-// MARK - Request taxi
-
-
 
 // MARK - Informations of drivers
 
 - (IBAction)getRunFromDrivers:(id)sender {
     
-    [APIManager dataRacing: onSuccess:^(id data) {
+    [APIManager dataRacing:(NSInteger)rideId onSuccess:^(id data) {
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Informações da corrida"
-                                                                                 message:@""
+                                                                                 message:@"[msg]"
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
