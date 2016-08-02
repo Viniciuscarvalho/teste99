@@ -156,9 +156,14 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Corridas" width="237" id="d7G-3R-Oys"/>
+                        <barButtonItem title="Corridas" width="237" id="d7G-3R-Oys">
+                            <connections>
+                                <action selector="getRunFromDrivers:" destination="6jQ-Ea-LP6" id="p1J-9K-sXx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem title="Usuários" width="463" id="Nvx-Tn-VzH">
                             <connections>
+                                <action selector="getInfoFromUsers:" destination="6jQ-Ea-LP6" id="ZMw-nw-X2s"/>
                                 <segue destination="2Up-xL-byo" kind="show" id="FdY-dc-goQ"/>
                             </connections>
                         </barButtonItem>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F85CF9D27715DA1AA44EF9A /* Pods_teste99Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20CD7B8A552D5A8A671D77D9 /* Pods_teste99Tests.framework */; };
 		6FC0B6EEF2D5711BFAD1F7BC /* Pods_teste99.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C13D4F898554CB3E9FE6EC /* Pods_teste99.framework */; };
+		EA0952F01D511B2E00EE5B94 /* RaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0952EF1D511B2E00EE5B94 /* RaceModel.m */; };
 		EA8E3F701D45470C00AE5935 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA8E3F6F1D45470C00AE5935 /* APIManager.m */; };
 		EADDC4AD1D4694C900E028F5 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4AC1D4694C900E028F5 /* UserModel.m */; };
 		EADDC4B01D46AC6B00E028F5 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EADDC4AF1D46AC6B00E028F5 /* SignupViewController.m */; };
@@ -39,6 +40,8 @@
 		7666E0BB1FFF4824962769E2 /* Pods-teste99Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teste99Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-teste99Tests/Pods-teste99Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B279CA354A9B7B507E57A1CA /* Pods-teste99.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-teste99.release.xcconfig"; path = "Pods/Target Support Files/Pods-teste99/Pods-teste99.release.xcconfig"; sourceTree = "<group>"; };
 		E9C13D4F898554CB3E9FE6EC /* Pods_teste99.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_teste99.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0952EE1D511B2E00EE5B94 /* RaceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceModel.h; sourceTree = "<group>"; };
+		EA0952EF1D511B2E00EE5B94 /* RaceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaceModel.m; sourceTree = "<group>"; };
 		EA8E3F6E1D45470C00AE5935 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		EA8E3F6F1D45470C00AE5935 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		EADDC4AA1D468BFE00E028F5 /* teste99-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "teste99-Prefix.pch"; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				EADDC4B21D46CAA600E028F5 /* LocationManager.m */,
 				EADF71061D48034500E2E534 /* DriverModel.h */,
 				EADF71071D48034500E2E534 /* DriverModel.m */,
+				EA0952EE1D511B2E00EE5B94 /* RaceModel.h */,
+				EA0952EF1D511B2E00EE5B94 /* RaceModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 			files = (
 				EA8E3F701D45470C00AE5935 /* APIManager.m in Sources */,
 				EADDC4B31D46CAA600E028F5 /* LocationManager.m in Sources */,
+				EA0952F01D511B2E00EE5B94 /* RaceModel.m in Sources */,
 				EADDC4AD1D4694C900E028F5 /* UserModel.m in Sources */,
 				EADF71081D48034500E2E534 /* DriverModel.m in Sources */,
 				EAFBEA031D43EFA600A47026 /* AppDelegate.swift in Sources */,

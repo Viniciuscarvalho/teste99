@@ -7,6 +7,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "APIManager.h"
 #import "DriverModel.h"
+#import "RaceModel.h"
 
 @interface MapLocationViewController() <MKMapViewDelegate>
 
@@ -72,8 +73,9 @@
 
 - (void) setLocationDrivers {
     
+    __weak typeof(self) weakSelf = self;
+    
     [APIManager locationDriver:(NSArray *)_sw pointNortheast:(NSArray *)_ne onSuccess:^(NSArray<DriverModel *> *locations){
-        __weak typeof(self) weakSelf = self;
         
         for (DriverModel *driver in locations) {
             CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(driver.latitude, driver.longitude);
@@ -95,7 +97,6 @@
     [self.mapView selectAnnotation:driver animated:YES];
     
 }
-
 
 
 // MARK - MKMapViewDelegate
@@ -129,7 +130,6 @@
 };
 
 
-
 // MARK - Location for user in textField
 
 - (void) getAddressFromCurrentUser:(CLLocation *)currentLocation {
@@ -147,6 +147,39 @@
 
 }
 
+// MARK - Request taxi
+
+
+
+// MARK - Informations of drivers
+
+- (IBAction)getRunFromDrivers:(id)sender {
+    
+    [APIManager dataRacing: onSuccess:^(id data) {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Informações da corrida"
+                                                                                 message:@""
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+
+        
+    } onFailure:^(NSError *error) {
+        
+        NSLog(@"Error in get informations");
+        
+    }];
+    
+}
+
+
+- (IBAction)getInfoFromUsers:(id)sender {
+    
+    
+    
+    
+}
 
 
 
