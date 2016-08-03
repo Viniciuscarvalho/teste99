@@ -51,6 +51,7 @@
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
              NSLog(@"JSON: %@", responseObject);
              
+             [[operation responseObject] allHeaderFields];
              success(responseObject);
              
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -127,6 +127,9 @@
                                 <state key="normal" title="Pedir Táxi">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="requestTaxi:" destination="6jQ-Ea-LP6" eventType="touchUpInside" id="TQV-Cc-pix"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endereço" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EcV-Fy-he4">
                                 <rect key="frame" x="20" y="442" width="560" height="30"/>
@@ -156,12 +159,7 @@
                         </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Corridas" width="237" id="d7G-3R-Oys">
-                            <connections>
-                                <action selector="getRunFromDrivers:" destination="6jQ-Ea-LP6" id="p1J-9K-sXx"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Usuários" width="463" id="Nvx-Tn-VzH">
+                        <barButtonItem title="Usuários" width="562" id="Nvx-Tn-VzH">
                             <connections>
                                 <action selector="getInfoFromUsers:" destination="6jQ-Ea-LP6" id="ZMw-nw-X2s"/>
                                 <segue destination="2Up-xL-byo" kind="show" id="FdY-dc-goQ"/>

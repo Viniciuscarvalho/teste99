@@ -131,17 +131,43 @@
 
 // MARK - Request taxi
 
-- (void)requestTaxi {
+- (IBAction)requestTaxi:(id)sender {
+    
+    [APIManager requestTaxi:ride onSuccess:^(id data) {
+        
+        // get Location from return
+        
+        // Pass with Notification
+        
+        [self getInformationsFromDriver];
+        
+        
+    } onFailure:^(NSError *error) {
+        
+        NSLog(@"Try request Taxi again");
+        
+    }];
 
-    [APIManager requestTaxi:rideId onSuccess:^(id data) {
+}
+
+- (void) getInformationsFromDriver {
+
+    [APIManager dataRacing:rideId onSuccess:^(id data) {
+    
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Solicitação do Táxi"
+                                                                                 message:@"[msg]"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    
     
     
     } onFailure:^(NSError *error) {
     
-        NSLog(@"Try request Taxi again");
         
     }];
- 
 
 }
 
@@ -161,37 +187,6 @@
         
     }];
 
-}
-
-
-// MARK - Informations of drivers
-
-- (IBAction)getRunFromDrivers:(id)sender {
-    
-    [APIManager dataRacing:(NSInteger)rideId onSuccess:^(id data) {
-        
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Informações da corrida"
-                                                                                 message:@"[msg]"
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        [self presentViewController:alertController animated:YES completion:nil];
-
-        
-    } onFailure:^(NSError *error) {
-        
-        NSLog(@"Error in get informations");
-        
-    }];
-    
-}
-
-
-- (IBAction)getInfoFromUsers:(id)sender {
-    
-    
-    
-    
 }
 
 
