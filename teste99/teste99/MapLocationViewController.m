@@ -133,14 +133,16 @@
 
 - (IBAction)requestTaxi:(id)sender {
     
-    [APIManager requestTaxi:ride onSuccess:^(id data) {
+    [APIManager requestTaxi: ^(id data) {
         
-        // get Location from return
+        if ( data != nil) {
+            
+            NSString *location = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            location = [location stringByReplacingOccurrencesOfString:@"http://ec2-54-88-12-34.compute-1.amazonaws.com/v1/ride/" withString:@""];
         
-        // Pass with Notification
-        
-        [self getInformationsFromDriver];
-        
+            [self getInformationsFromDriver: location];
+        }
         
     } onFailure:^(NSError *error) {
         
@@ -150,22 +152,27 @@
 
 }
 
-- (void) getInformationsFromDriver {
+- (void) getInformationsFromDriver: (NSString *)location {
 
-    [APIManager dataRacing:rideId onSuccess:^(id data) {
+    int code = [location integerValue];
+    
+    [APIManager dataRacing:code onSuccess:^(id data) {
+        
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+        
+        NSString *message = [json valueForKey:@"msg"];
     
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Solicitação do Táxi"
-                                                                                 message:@"[msg]"
+                                                                                 message:message
                                                                           preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
     
-    
-    
     } onFailure:^(NSError *error) {
     
+        NSLog(@"Try get information from driver");
         
     }];
 

@@ -41,7 +41,7 @@
           }];
 }
 
-+ (void) requestTaxi:(NSString *)ride onSuccess:(void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
++ (void) requestTaxi: (void(^)(id data))success onFailure:(void(^)(NSError*error))failure {
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

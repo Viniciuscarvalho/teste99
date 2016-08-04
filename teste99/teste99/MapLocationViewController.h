@@ -17,6 +17,4 @@
 @property (nonatomic) BOOL hasUserLocation;
 
 
-
-
 @end

@@ -1,6 +1,6 @@
 
 #import <UIKit/UIKit.h>
-
+#import <LLARingSpinnerView/LLARingSpinnerView.h>
 
 @interface SignupViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate> {
 
