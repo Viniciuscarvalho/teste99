@@ -20,7 +20,6 @@
     [super viewDidLoad];
 
     self.addressTextField.delegate = self;
-    self.mapView = [[MKMapView alloc] init];
     self.mapView.delegate = self;
     self.mapView.showsUserLocation = YES;
     
