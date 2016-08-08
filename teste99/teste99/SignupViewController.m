@@ -80,7 +80,8 @@
         
         [APIManager signupUser:username onSuccess:^(id data)  {
             
-            [APIManager saveUserData:nil];
+            // Pass Dictionary with userData
+            [APIManager saveUserData: nil];
             
             UIViewController *mapLocation = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"mapLocationViewControllerIdentifier"];
             

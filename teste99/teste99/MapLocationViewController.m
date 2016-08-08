@@ -27,21 +27,6 @@
     [self.locationManager requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    [self setCurrentLocation];
-    
-    
-}
-
-// MARK - Location Delegate Methods
-
-- (void) setCurrentLocation {
-    
-    if (self.locationManager == nil){
-        self.locationManager = [[CLLocationManager alloc]init];
-    }
-    self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
